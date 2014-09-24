@@ -1,7 +1,6 @@
 # github-linker-resolve 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image] [![Coverage Status][coveralls-image]][coveralls-url]
 
-The best module ever.
 
 
 ## Install
@@ -15,17 +14,12 @@ $ npm install --save github-linker-resolve
 
 ```javascript
 var githubLinkerResolve = require('github-linker-resolve');
-githubLinkerResolve(); // "awesome"
+
+githubLinkerResolve('user/repo'); // => https://github.com/user/repo
+githubLinkerResolve('../../index.js','https://github.com/user/repo/blob/master/lib/utils/math.js'); // => https://github.com/user/repo/blob/master/index.js
+githubLinkerResolve('user/repo@master'); // => https://github.com/user/tree/master
+githubLinkerResolve('user/repo@master:/folder/file.js'); // => https://github.com/user/repo/blob/master/folder/file.js
 ```
-
-## API
-
-_(Coming soon)_
-
-
-## Contributing
-
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [gulp](http://gulpjs.com/).
 
 
 ## License
