@@ -1,0 +1,40 @@
+{
+  "name": "github-linker-resolve",
+  "description": "The best module ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/stefanbuck/github-linker-resolve",
+  "bugs": "https://github.com/stefanbuck/github-linker-resolve/issues",
+  "license": "MIT",
+  "main": "lib/github-linker-resolve.js",
+  "author": {
+    "name": "Stefan Buck",
+    "email": "code@stefanbuck.com",
+    "url": "http://stefanbuck.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefanbuck/github-linker-resolve"
+  },
+  "keywords": [],
+  "dependencies": {
+    "duo-parse": "^0.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-util": "^3.0.1",
+    "gulp-bump": "^0.1.11",
+    "gulp-jscs": "^1.1.2",
+    "gulp-jshint": "^1.8.4",
+    "gulp-mocha": "^1.1.0",
+    "gulp-istanbul": "^0.3.0",
+    "coveralls": "^2.11.1",
+    "should": "^4.0.4",
+    "jshint-stylish": "^0.4.0",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-plumber": "^0.6.5"
+  },
+  "scripts": {
+    "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "gulp test"
+  }
+}
