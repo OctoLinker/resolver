@@ -11,6 +11,7 @@
 var url = require('url');
 var util = require('util');
 var duoParse = require('duo-parse');
+var ghParse = require('github-url-from-git');
 
 var isLocalPath = function(val) {
   if (val === '..') {
@@ -67,6 +68,13 @@ module.exports = function(dep, href) {
 
   if (result) {
     return url.resolve(baseUrl, result);
+  }
+
+  // resolve git urls from github like git://github.com/user/repo
+  // TODO: Handle other git url as well
+  result = ghParse(dep);
+  if (result) {
+    return result;
   }
 
   return '';
