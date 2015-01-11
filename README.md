@@ -16,6 +16,7 @@ $ npm install --save github-linker-resolve
 var githubLinkerResolve = require('github-linker-resolve');
 
 githubLinkerResolve('user/repo'); // => https://github.com/user/repo
+githubLinkerResolve('user/repo#master'); // => https://github.com/user/repo/tree/master
 githubLinkerResolve('../../index.js','https://github.com/user/repo/blob/master/lib/utils/math.js'); // => https://github.com/user/repo/blob/master/index.js
 githubLinkerResolve('user/repo@master'); // => https://github.com/user/tree/master
 githubLinkerResolve('user/repo@master:/folder/file.js'); // => https://github.com/user/repo/blob/master/folder/file.js

@@ -35,30 +35,24 @@ function removeTrailingSlash(value) {
   return value;
 }
 
-function resolver(dep, href) {
-  var result = '';
-  var baseUrl = 'https://github.com';
-
-  // resolve local path like ../folder/file.js
-  if (isLocalPath(dep)) {
-    return url.resolve(href, dep);
+function localPath (value, href) {
+  if (isLocalPath(value)) {
+    return url.resolve(href, value);
   }
+  return null;
+}
 
-  // resolve github shorthands like user/repo
-  result = ghShorthand(dep, true);
-  if (result) {
-    return result;
-  }
+function githubShorthand (value) {
+  return ghShorthand(value, true);
+}
 
-  // resolve git urls from github like git://github.com/user/repo
-  // TODO: Handle other git url as well
-  result = ghParse(dep);
-  if (result) {
-    return result;
-  }
+function githubGitUrl (value) {
+  return ghParse(value);
+}
 
-  // Duo resolver
-  var gh = duoParse(dep);
+function duo (value) {
+  var result = null;
+  var gh = duoParse(value);
   if (gh.user && gh.repo) {
     if (gh.path) {
       // resolve duojs shorthand like user/repo@master:/file.js
@@ -70,14 +64,22 @@ function resolver(dep, href) {
     }
 
     if (result) {
-      return url.resolve(baseUrl, result);
+      return url.resolve('https://github.com', result);
     }
   }
-
-  return '';
+  return null;
 }
 
 module.exports = function(dep, href) {
-  var result = resolver(dep, href);
-  return removeTrailingSlash(result);
+  var result = '';
+  var flow = [localPath, githubShorthand, githubGitUrl, duo];
+
+  for (var i = flow.length - 1; i >= 0; i--) {
+    result = flow[i](dep, href);
+    if (result) {
+      break;
+    }
+  }
+
+  return removeTrailingSlash(result || '');
 };
