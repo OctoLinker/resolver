@@ -95,8 +95,8 @@ describe('resolve', function () {
       resolve('user/repo').should.equal('https://github.com/user/repo');
     });
 
-    it('/user', function () {
-      resolve('/user').should.equal('');
+    it('user/repo#master', function () {
+      resolve('user/repo#master').should.equal('https://github.com/user/repo/tree/master');
     });
   });
 
@@ -170,6 +170,10 @@ describe('resolve', function () {
 
     it('@user', function () {
       resolve('@user').should.equal('');
+    });
+
+    it('/user', function () {
+      resolve('/user').should.equal('');
     });
   });
 

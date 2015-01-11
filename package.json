@@ -1,19 +1,19 @@
 {
-  "name": "github-linker-resolve",
-  "description": "The best module ever.",
+  "name": "github-linker-resolver",
+  "description": "Little module that helps with link resolving.",
   "version": "0.2.0",
-  "homepage": "https://github.com/stefanbuck/github-linker-resolve",
-  "bugs": "https://github.com/stefanbuck/github-linker-resolve/issues",
+  "homepage": "https://github.com/github-linker/resolver",
+  "bugs": "https://github.com/github-linker/resolver/issues",
   "license": "MIT",
-  "main": "lib/github-linker-resolve.js",
+  "main": "index.js",
   "author": {
     "name": "Stefan Buck",
-    "email": "code@stefanbuck.com",
+    "email": "github@stefanbuck.com",
     "url": "http://stefanbuck.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stefanbuck/github-linker-resolve"
+    "url": "https://github.com/github-linker/resolver"
   },
   "keywords": [],
   "dependencies": {
