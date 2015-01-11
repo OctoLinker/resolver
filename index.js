@@ -12,8 +12,9 @@ var url = require('url');
 var util = require('util');
 var duoParse = require('duo-parse');
 var ghParse = require('github-url-from-git');
+var ghShorthand = require('github-url-from-username-repo');
 
-var isLocalPath = function(val) {
+function isLocalPath(val) {
   if (val === '..') {
     return true;
   }
@@ -24,7 +25,7 @@ var isLocalPath = function(val) {
   }
 
   return false;
-};
+}
 
 function removeTrailingSlash(value) {
   if (value.slice(-1) === '/') {
@@ -34,40 +35,19 @@ function removeTrailingSlash(value) {
   return value;
 }
 
-module.exports = function(dep, href) {
+function resolver(dep, href) {
   var result = '';
   var baseUrl = 'https://github.com';
 
-  var gh = duoParse(dep);
-
+  // resolve local path like ../folder/file.js
   if (isLocalPath(dep)) {
-
-    // resolve local path like ../folder/file.js
-    result = url.resolve(href, dep);
-
-  } else if (gh.user && gh.repo) {
-
-    if (gh.path) {
-
-      // resolve duojs shorthand like user/repo@master:/file.js
-      result = util.format('%s/%s/blob/%s%s', gh.user, gh.repo, gh.ref, gh.path);
-
-    } else if (gh.ref) {
-
-      // resolve duojs shorthand like user/repo@master
-      result = util.format('%s/%s/tree/%s', gh.user, gh.repo, gh.ref);
-
-    } else {
-
-      // resolve gihtub shorthand like https://github.com/user/repo
-      result = util.format('%s/%s', gh.user, gh.repo);
-    }
+    return url.resolve(href, dep);
   }
 
-  result = removeTrailingSlash(result);
-
+  // resolve github shorthands like user/repo
+  result = ghShorthand(dep, true);
   if (result) {
-    return url.resolve(baseUrl, result);
+    return result;
   }
 
   // resolve git urls from github like git://github.com/user/repo
@@ -77,5 +57,27 @@ module.exports = function(dep, href) {
     return result;
   }
 
+  // Duo resolver
+  var gh = duoParse(dep);
+  if (gh.user && gh.repo) {
+    if (gh.path) {
+      // resolve duojs shorthand like user/repo@master:/file.js
+      result = util.format('%s/%s/blob/%s%s', gh.user, gh.repo, gh.ref, gh.path);
+
+    } else if (gh.ref) {
+      // resolve duojs shorthand like user/repo@master
+      result = util.format('%s/%s/tree/%s', gh.user, gh.repo, gh.ref);
+    }
+
+    if (result) {
+      return url.resolve(baseUrl, result);
+    }
+  }
+
   return '';
+}
+
+module.exports = function(dep, href) {
+  var result = resolver(dep, href);
+  return removeTrailingSlash(result);
 };
