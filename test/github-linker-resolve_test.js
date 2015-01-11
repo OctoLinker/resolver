@@ -100,6 +100,25 @@ describe('resolve', function () {
     });
   });
 
+  describe('github urls', function () {
+
+    it('jquery/jquery#master', function () {
+      resolve('jquery/jquery#master').should.equal('https://github.com/jquery/jquery/tree/master');
+    });
+
+    it('jquery/jquery#1.x-master', function () {
+      resolve('jquery/jquery#1.x-master').should.equal('https://github.com/jquery/jquery/tree/1.x-master');
+    });
+
+    it('git+ssh://github.com:stefanbuck/github-linker-core.git', function () {
+      resolve('git+ssh://github.com:stefanbuck/github-linker-core.git').should.equal('https://github.com/stefanbuck/github-linker-core');
+    });
+
+    it('git@github.com:stefanbuck/github-linker-core.git', function () {
+      resolve('git@github.com:stefanbuck/github-linker-core.git').should.equal('https://github.com/stefanbuck/github-linker-core');
+    });
+  });
+
   describe('shorthand duojs', function () {
 
     it('user/repo@master', function () {

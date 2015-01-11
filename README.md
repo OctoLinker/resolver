@@ -24,7 +24,7 @@ githubLinkerResolve('user/repo@master:/folder/file.js'); // => https://github.co
 
 ## License
 
-Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
+Copyright (c) 2015 Stefan Buck. Licensed under the MIT license.
 
 
 

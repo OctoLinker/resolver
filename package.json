@@ -18,7 +18,8 @@
   "keywords": [],
   "dependencies": {
     "duo-parse": "^0.2.0",
-    "github-url-from-git": "^1.4.0"
+    "github-url-from-git": "^1.4.0",
+    "github-url-from-username-repo": "^1.0.2"
   },
   "devDependencies": {
     "gulp": "^3.8.8",
