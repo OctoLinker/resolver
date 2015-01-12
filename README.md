@@ -1,39 +1,52 @@
-# github-linker-resolve 
+# resolver 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image] [![Coverage Status][coveralls-image]][coveralls-url]
 
-
+Little module that helps with link resolving.
 
 ## Install
 
 ```bash
-$ npm install --save github-linker-resolve
+$ npm install --save github-linker-resolver
 ```
 
 
-## Usage
+## API
+
+Resolve a url into a GitHub url
 
 ```javascript
-var githubLinkerResolve = require('github-linker-resolve');
+var resolver = require('github-linker-resolverr');
 
-githubLinkerResolve('user/repo'); // => https://github.com/user/repo
-githubLinkerResolve('user/repo#master'); // => https://github.com/user/repo/tree/master
-githubLinkerResolve('../../index.js','https://github.com/user/repo/blob/master/lib/utils/math.js'); // => https://github.com/user/repo/blob/master/index.js
-githubLinkerResolve('user/repo@master'); // => https://github.com/user/tree/master
-githubLinkerResolve('user/repo@master:/folder/file.js'); // => https://github.com/user/repo/blob/master/folder/file.js
+resolver('user/repo'); 
+// https://github.com/user/repo
+
+resolver('user/repo#master'); 
+// https://github.com/user/repo/tree/master
+
+resolver('../../index.js', 'https://github.com/user/repo/blob/master/lib/utils/math.js'); 
+// https://github.com/user/repo/blob/master/index.js
+
+resolver('user/repo@master'); 
+// https://github.com/user/tree/master
+
+resolver('user/repo@master:/folder/file.js');
+// https://github.com/user/repo/blob/master/folder/file.js
 ```
+
+
 
 
 ## License
 
-Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
+Copyright (c) 2015 by the GitHub-Linkter authors. Licensed under the MIT license.
 
 
 
-[npm-url]: https://npmjs.org/package/github-linker-resolve
-[npm-image]: https://badge.fury.io/js/github-linker-resolve.svg
-[travis-url]: https://travis-ci.org/stefanbuck/github-linker-resolve
-[travis-image]: https://travis-ci.org/stefanbuck/github-linker-resolve.svg?branch=master
-[daviddm-url]: https://david-dm.org/stefanbuck/github-linker-resolve.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/stefanbuck/github-linker-resolve
-[coveralls-url]: https://coveralls.io/r/stefanbuck/github-linker-resolve
-[coveralls-image]: https://coveralls.io/repos/stefanbuck/github-linker-resolve/badge.png
+[npm-url]: https://npmjs.org/package/github-linker-resolver
+[npm-image]: https://badge.fury.io/js/github-linker-resolver.svg
+[travis-url]: https://travis-ci.org/github-linker/resolver
+[travis-image]: https://travis-ci.org/github-linker/resolver.svg?branch=master
+[daviddm-url]: https://david-dm.org/github-linker/resolver.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/github-linker/resolver
+[coveralls-url]: https://coveralls.io/r/github-linker/resolver
+[coveralls-image]: https://coveralls.io/repos/github-linker/resolver/badge.png
