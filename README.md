@@ -15,7 +15,7 @@ $ npm install --save github-linker-resolver
 Resolve a url into a GitHub url
 
 ```javascript
-var resolver = require('github-linker-resolverr');
+var resolver = require('github-linker-resolver');
 
 resolver('user/repo'); 
 // https://github.com/user/repo
