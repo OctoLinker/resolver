@@ -1,6 +1,6 @@
 /*
- * github-linker-resolve
- * https://github.com/stefanbuck/github-linker-resolve
+ * octo-linker-resolve
+ * https://github.com/octo-linker/octo-linker-resolve
  *
  * Copyright (c) 2014 Stefan Buck
  * Licensed under the MIT license.

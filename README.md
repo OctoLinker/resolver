@@ -6,7 +6,7 @@ Little module that helps with link resolving.
 ## Install
 
 ```bash
-$ npm install --save github-linker-resolver
+$ npm install --save octo-linker-resolver
 ```
 
 
@@ -15,7 +15,7 @@ $ npm install --save github-linker-resolver
 Resolve a url into a GitHub url
 
 ```javascript
-var resolver = require('github-linker-resolver');
+var resolver = require('octo-linker-resolver');
 
 resolver('user/repo'); 
 // https://github.com/user/repo
@@ -42,11 +42,11 @@ Copyright (c) 2015 Stefan Buck. Licensed under the MIT license.
 
 
 
-[npm-url]: https://npmjs.org/package/github-linker-resolver
-[npm-image]: https://badge.fury.io/js/github-linker-resolver.svg
-[travis-url]: https://travis-ci.org/github-linker/resolver
-[travis-image]: https://travis-ci.org/github-linker/resolver.svg?branch=master
-[daviddm-url]: https://david-dm.org/github-linker/resolver.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/github-linker/resolver
-[coveralls-url]: https://coveralls.io/r/github-linker/resolver
-[coveralls-image]: https://coveralls.io/repos/github-linker/resolver/badge.png
+[npm-url]: https://npmjs.org/package/octo-linker-resolver
+[npm-image]: https://badge.fury.io/js/octo-linker-resolver.svg
+[travis-url]: https://travis-ci.org/octo-linker/resolver
+[travis-image]: https://travis-ci.org/octo-linker/resolver.svg?branch=master
+[daviddm-url]: https://david-dm.org/octo-linker/resolver.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/octo-linker/resolver
+[coveralls-url]: https://coveralls.io/r/octo-linker/resolver
+[coveralls-image]: https://coveralls.io/repos/octo-linker/resolver/badge.png

@@ -110,12 +110,12 @@ describe('resolve', function () {
       resolve('jquery/jquery#1.x-master').should.equal('https://github.com/jquery/jquery/tree/1.x-master');
     });
 
-    it('git+ssh://github.com:stefanbuck/github-linker-core.git', function () {
-      resolve('git+ssh://github.com:stefanbuck/github-linker-core.git').should.equal('https://github.com/stefanbuck/github-linker-core');
+    it('git+ssh://github.com:octo-linker/octo-linker-core.git', function () {
+      resolve('git+ssh://github.com:octo-linker/octo-linker-core.git').should.equal('https://github.com/octo-linker/octo-linker-core');
     });
 
-    it('git@github.com:stefanbuck/github-linker-core.git', function () {
-      resolve('git@github.com:stefanbuck/github-linker-core.git').should.equal('https://github.com/stefanbuck/github-linker-core');
+    it('git@github.com:octo-linker/octo-linker-core.git', function () {
+      resolve('git@github.com:octo-linker/octo-linker-core.git').should.equal('https://github.com/octo-linker/octo-linker-core');
     });
   });
 
